@@ -1,0 +1,195 @@
+:root {
+/* price and days color */
+--clr-Soft-blue: hsl(215, 51%, 70%);
+--clr-Cyan: hsl(178, 100%, 50%);
+--clr-Cyan-second: hsla(178, 100%, 50%, 0.205);
+
+/* Bacground colors */
+--clr-Very-dark-blue-main-BG: hsl(217, 54%, 11%);
+--clr-Very-dark-blue-card-BG: hsl(216, 50%, 16%);
+
+/* Others */
+--clr-Very-dark-blue-line: hsl(215, 32%, 27%);
+--clr-White: hsl(0, 0%, 100%);
+
+/* Fonts */
+--fw-small: 300;
+--fw-medium: 400;
+--fw-big: 600;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* word-wrap: break-word; */
+}
+
+/* img:not(s) {
+    max-width: 100%;
+} */
+
+@font-face {
+    font-family: outfit;
+    src: url(Outfit-VariableFont_wght.ttf);
+}
+
+body {
+    font-family: outfit;
+    font-size: 1.2rem;
+
+    background: var(--clr-Very-dark-blue-main-BG);
+    height: 100vh;
+
+    color: var(--clr-Soft-blue);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* display: grid;
+    place-content: center; */
+}
+
+.card_container {
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+
+    width: 90%;
+    max-width: 375px;
+    margin: 0px auto;
+
+    background: var(--clr-Very-dark-blue-card-BG);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    display: grid;
+    gap: .7rem;
+}
+
+.image_container {
+    position: relative;
+
+    border-radius: 1rem;
+
+    width: 18rem;
+    margin-bottom: 0.5rem;
+
+    overflow: hidden;
+}
+
+.image_container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    
+    background: var(--clr-Cyan-second);
+    opacity: -1;
+    transition: opacity 2s ease;
+}
+
+.image_container:hover::before {
+    opacity: 1;
+
+    content: url(icon-view.svg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    display: inline-block;
+    max-width: 100%;
+    height: 100%;
+}
+
+.nft_name {
+    color: var(--clr-White);
+
+    font-size: 1.4rem;
+    font-weight: var(--fw-big);
+}
+
+.about_the_nft {
+    font-size: 1rem;
+    font-weight: var(--fw-small);
+    line-height: 1.5rem;   
+}
+
+.price_day {
+    display: flex;
+    gap: 5rem;
+    
+    font-size: 1rem;
+    font-weight: var(--fw-medium);
+
+    border-bottom: 1px solid var(--clr-Very-dark-blue-line);
+}
+
+.price_day div{
+    margin-bottom: 0.8rem;
+}
+
+.price {
+    color: var(--clr-Cyan);
+}
+
+.price::before {
+    content: url('icon-ethereum.svg');
+    display: inline;
+    position: relative;
+    top: .2rem;
+    right: .2rem;
+}
+
+.days_left::before {
+    content: url('icon-clock.svg');
+    display: inline;
+    position: relative;
+    top: .2rem;
+    right: .4rem;
+}
+
+.review {
+    display: flex;
+    gap: 4rem;
+
+    font-size: 1rem;
+    font-weight: var(--fw-small);
+}
+
+.avater {
+    border: 2px solid var(--clr-White);
+    border-radius: 50%;
+
+    width: 13%;
+
+}
+
+.avater_image {
+    width: 100%;
+    height: 100%;
+}
+
+.remark {
+    position: relative;
+    top: .6rem;
+    right: 3rem;
+}
+
+.span {
+    color: var(--clr-White);
+}
+
+.nft_name:hover,
+.span:hover {
+    cursor: pointer;
+    color: var(--clr-Cyan);
+}
